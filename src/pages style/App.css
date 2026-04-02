@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Amarna:ital,wght@0,100..700;1,100..700&family=BBH+Bogle&family=Berkshire+Swash&family=Cause:wght@100..900&family=Courgette&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Exo+2:ital,wght@0,100..900;1,100..900&family=Geom:ital,wght@0,300..900;1,300..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Lexend:wght@100..900&family=Lilita+One&family=Luckiest+Guy&family=Momo+Trust+Display&family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Noto+Sans+Mono:wght@100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Pacifico&family=Permanent+Marker&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Quicksand:wght@300..700&family=Raleway:ital,wght@0,100..900;1,100..900&family=Righteous&family=Roboto:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&family=Sekuya&family=Space+Grotesk:wght@300..700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: monospace , "Poppins";
+}
+
+#root {
+    display: flex;
+    flex-direction: column;
+    max-width: 1366px;
+    min-height: 100vh;
+    margin: auto;
+    overflow-x: hidden;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    outline: none;
+    border: none;
+}
+
+input {
+    outline: none;
+}
+
+textarea {
+    resize: none;
+    outline: none;
+}
+
+select {
+    border-radius: 6px;
+    cursor: pointer;
+    outline: none;
+}
+
+option {
+    cursor: pointer;
+    background-color: aliceblue;
+}
+
+::-webkit-scrollbar {
+    width: 0px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--scrollbar-track);
+    border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--scrollbar-thumb);
+    border-radius: 20px;
+    cursor: grabbing;
+}
+
+body, body.dark {
+    --bg-color: #0f0f0f;
+    --bg-secondary: #1a1a2e;
+    --card-bg: #16213e;
+    --navbar-bg: #0d0d0dcc;
+    --text-color: #e0e0e0;
+    --text-secondary: #a0a0b0;
+    --border-color: #2a2a4a;
+    --shadow: 0 4px 15px rgba(0,0,0,0.5);
+    --accent: #7c3aed;
+    --gradient: linear-gradient(135deg, #7c3aed, #2563eb);
+    --input-bg: #1e1e3a;
+    --scrollbar-track: #1a1a2e;
+    --scrollbar-thumb: #7c3aed;
+}
+
+body , body.light {
+    --bg-color: #f0f4ff;
+    --bg-secondary: #ffffff;
+    --card-bg: #ffffff;
+    --navbar-bg: #ffffffcc;
+    --text-secondary: #4a4a6a;
+    --text-color: #1a1a2e;
+    --text-secondary: #555577;
+    --border-color: #dde3f0;
+    --shadow: 0 4px 15px rgba(100,100,200,0.15);
+    --accent: #7c3aed;
+    --gradient: linear-gradient(135deg, #7c3aed, #2563eb);
+    --input-bg: #f8f9ff;
+    --scrollbar-track: #e8ecf8;
+    --scrollbar-thumb: #7c3aed;
+}

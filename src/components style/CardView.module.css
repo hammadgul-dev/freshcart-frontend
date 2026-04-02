@@ -1,0 +1,49 @@
+.user-choice {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 3px;
+}
+
+.user-choice > div {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    align-items: center;
+    background: var(--card-bg);
+    padding: 7px 6px;
+    border-radius: 10px;
+    border: 1px solid rgba(124, 58, 237, 0.2);
+    box-shadow: var(--shadow);
+}
+
+.user-choice > div > span {
+    font-size: 20px;
+    color: var(--border-color);
+}
+
+.user-choice > div > button {
+    font-size: 15px;
+    font-family: 'Poppins', Tahoma, sans-serif;
+    font-weight: bold;
+    padding: 6px 10px;
+    border-radius: 10px;
+    background: transparent;
+    color: var(--text-secondary);
+    border: 1px solid transparent;
+    transition: all 0.2s ease;
+}
+
+.user-choice > div > button:hover {
+    background: rgba(124, 58, 237, 0.15);
+    color: var(--accent);
+    border: 1px solid rgba(124, 58, 237, 0.3);
+}
+
+.user-choice > div > button:focus {
+    background: var(--gradient);
+    color: #ffffff;
+    border: 1px solid transparent;
+    box-shadow: 0 0 10px rgba(124, 58, 237, 0.4);
+}

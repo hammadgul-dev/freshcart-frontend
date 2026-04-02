@@ -1,0 +1,123 @@
+.fav-section {
+    width: 100%;
+    min-height: 610px;
+    max-height: 610px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 10px;
+}
+
+.item-wrapper {
+    width: 100%;
+    display: grid;
+    gap: 16px;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));  /* 👈 auto-fill */
+    padding: 20px;
+}
+
+.empty-msg {
+    width: 100%;
+    text-align: center;
+    padding: 40px 0;
+    color: var(--text-secondary);
+    font-size: 1.7rem;
+    grid-column: 1 / -1;  
+}
+
+.fav-card {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 12px;
+    border-radius: 16px;
+    background: var(--card-bg);
+    border: 1px solid rgba(124, 58, 237, 0.2);
+    box-shadow: var(--shadow);
+    transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+}
+
+.fav-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(124, 58, 237, 0.25);
+    border-color: rgba(124, 58, 237, 0.5);
+}
+
+.item-img {
+    width: 100%;
+    height: 180px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    background: var(--img-bg);
+    border: 1px solid var(--border-color);
+}
+
+.item-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 8px;
+    transition: transform 0.3s ease;
+}
+
+.fav-card:hover .item-img img {
+    transform: scale(1.05);
+}
+
+.item-name {
+    text-align: center;
+    font-size: 0.95rem;
+    color: var(--text-color);
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    line-height: 1.4;
+}
+
+.remove-btn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-top: auto;
+}
+
+.remove-btn button {
+    padding: 7px 20px;
+    border-radius: 10px;
+    background: rgba(239, 68, 68, 0.1);
+    color: #ef4444;
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    font-size: 13px;
+    font-weight: 600;
+    transition: background 0.2s, transform 0.2s;
+}
+
+.remove-btn button:hover {
+    background: #ef4444;
+    color: white;
+    transform: translateY(-1px);
+}
+
+@media only screen and (max-width: 600px) {
+    .item-wrapper {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 12px;
+        gap: 12px;
+    }
+
+    .item-img {
+        height: 140px;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .item-wrapper {
+        grid-template-columns: 1fr;
+    }
+}

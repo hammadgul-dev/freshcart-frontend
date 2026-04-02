@@ -1,0 +1,50 @@
+.message {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 12px;
+    padding: 10px 20px;
+    z-index: 9999;
+    animation: animate 0.3s ease forwards;
+    min-width: 220px;
+    max-width: 400px;
+    backdrop-filter: blur(10px);
+    background: var(--card-bg);
+    border: 2px solid rgba(110, 35, 240, 0.35);
+}
+
+.message p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-color);
+    text-align: center;
+}
+
+@keyframes animate {
+    0% {
+        top: -80px;
+        opacity: 0;
+    }
+
+    100% {
+        top: 30px;
+        opacity: 1;
+    }
+}
+
+@media only screen and (max-width: 769px) {
+    .message {
+        left: 50%;
+        transform: translateX(-50%);
+        min-width: 180px;
+        padding: 8px 16px;
+    }
+}

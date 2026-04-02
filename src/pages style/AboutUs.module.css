@@ -1,0 +1,149 @@
+.about-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 950px;
+    max-height: 610px;
+    overflow: hidden;     
+    margin: 0 auto;
+    padding: 24px 20px;
+}
+
+
+.scroll-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;    
+    overflow-x: hidden;
+    padding-right: 4px;
+}
+
+.product-about,
+.grocery-about {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 28px 32px;
+    width: 100%;
+    min-height: 220px;
+    border-radius: 20px;
+    box-sizing: border-box;
+    gap: 30px;
+    background: var(--card-bg);
+    border: 1px solid rgba(124, 58, 237, 0.2);
+    box-shadow: var(--shadow);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.product-about:hover,
+.grocery-about:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(124, 58, 237, 0.2);
+    border-color: rgba(124, 58, 237, 0.4);
+}
+
+.product-desc,
+.grocery-desc {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.product-desc h1,
+.grocery-desc h1 {
+    font-size: clamp(16px, 2.2vw, 21px);
+    line-height: 1.4;
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.product-desc p,
+.grocery-desc p {
+    font-size: 13px;
+    color: var(--text-secondary);
+    line-height: 1.7;
+}
+
+.product-img,
+.grocery-img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 280px;
+    height: 200px;
+    overflow: hidden;
+    border-radius: 14px;
+    flex-shrink: 0;
+    border: 1px solid rgba(124, 58, 237, 0.2);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+
+.product-img img,
+.grocery-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.product-img img:hover,
+.grocery-img img:hover {
+    transform: scale(1.05);
+}
+
+@media only screen and (max-width: 746px) {
+    .product-about,
+    .grocery-about {
+        flex-direction: column;
+        height: auto;
+        padding: 20px;
+        text-align: center;
+        min-height: auto;    
+    }
+
+    .product-desc,
+    .grocery-desc {
+        align-items: center;
+        width: 100%;         
+    }
+
+    .product-img,
+    .grocery-img {
+        width: 100%;
+        max-width: 300px;    
+        height: 180px;       
+        margin: 0 auto;
+        flex-shrink: 1;      
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .product-desc h1,
+    .grocery-desc h1 {
+        font-size: 17px;
+    }
+
+    .product-about,
+    .grocery-about {
+        padding: 14px 12px;
+        gap: 16px;           
+    }
+
+    .product-img,
+    .grocery-img {
+        max-width: 250px;    
+        height: 150px;
+    }
+}
+
+    .product-about,
+    .grocery-about {
+        padding: 18px 16px;
+}

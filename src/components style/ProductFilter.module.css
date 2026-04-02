@@ -1,0 +1,64 @@
+.filter-wrapper {
+    width: 100%;
+    padding: 10px 0;
+    background: var(--bg-color);
+}
+
+.filter {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-end;
+    padding-inline: 20px;
+    width: 100%;
+    min-height: 50px;
+    gap: 12px;
+    border-radius: 12px;
+    background: var(--card-bg);
+    border: 1px solid rgba(124, 58, 237, 0.2);
+    box-shadow: var(--shadow);
+    padding-block: 10px;
+}
+
+.filter select {
+    padding: 8px 14px;
+    background: var(--input-bg);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    outline: none;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 500;
+    min-width: 140px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    appearance: auto;
+}
+
+.filter select:focus,
+.filter select:hover {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.15);
+}
+
+.filter option {
+    background: var(--card-bg);
+    color: var(--text-color);
+}
+
+@media only screen and (max-width: 612px) {
+    .filter-wrapper {
+        position: static;
+    }
+
+    .filter {
+        justify-content: center;
+        gap: 10px;
+        padding-inline: 10px;
+    }
+
+    .filter select {
+        width: 100%;
+        max-width: 700px;
+    }
+}
