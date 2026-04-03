@@ -2,8 +2,10 @@ export async function apiFetch(apiUrl, options = {}, retries = 2) {
   try {
     let apiResp = await fetch(apiUrl, {
       ...options,
-      headers: { "Content-Type": "application/json" },
-      credentials: "include",
+      headers: { 
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${localStorage.getItem("token") || ""}`
+      },
     });
     let apiData = await apiResp.json()
     if (!apiResp.ok) throw apiData
