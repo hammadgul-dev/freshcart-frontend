@@ -4,6 +4,7 @@ import { useState } from "react"
 import { useEffect } from "react"
 import { handleItemFilter } from "../Redux/Slice/FilterSlice"
 import { useQuery } from "@tanstack/react-query"
+import { Ring } from "ldrs/react"
 
 function ProductFilter() {
   let dispatch = useDispatch()
@@ -14,7 +15,7 @@ function ProductFilter() {
     sortType: null,
   })
 
-  let { isLoading: groceryLoading, error: groceryError, data: grocery = [] } = useQuery({
+  let { isLoading: groceryLoading, isFetching: groceryFetching, data: grocery = [] } = useQuery({
     queryKey: ["groceryData"], refetchOnWindowFocus: false,
     retry: 3,
     queryFn: async () => {
@@ -24,7 +25,7 @@ function ProductFilter() {
     }
   })
 
-  let { isLoading: productLoading, error: productError, data: product = [] } = useQuery({
+  let { isLoading: productLoading, isFetching: productFetching, data: product = [] } = useQuery({
     queryKey: ["productData"], refetchOnWindowFocus: false,
     retry: 3,
     queryFn: async () => {
@@ -42,6 +43,20 @@ function ProductFilter() {
       }
     ))
   }, [filter])
+
+  if (productLoading || groceryLoading || groceryFetching || productFetching ) {
+    return (
+      <div style={{ display: 'flex', justifyContent: 'center', padding: '50px' }}>
+        <Ring
+          size="40"
+          stroke="5"
+          bgOpacity="0"
+          speed="1"
+          color="black"
+        />
+      </div>
+    )
+  }
 
   return (
     <div className={style["filter-wrapper"]}>

@@ -12,7 +12,7 @@ function ProductList() {
   const cardViewSelector = useSelector(state => state.cardViewReducer.value)
   const userSearch = useSelector(state => state.filterReducer.searchTxt)
 
-  let { isLoading: groceryLoading, error: groceryError, data: groceries = [] } = useQuery({
+  let { isLoading: groceryLoading, isFetching: groceryFetching, data: groceries = [] } = useQuery({
     queryKey: ["groceryData"], refetchOnWindowFocus: false,
     retry: 3,
     queryFn: async () => {
@@ -22,7 +22,7 @@ function ProductList() {
     }
   })
 
-  let { isLoading: productLoading, error: productError, data: products = [] } = useQuery({
+  let { isLoading: productLoading, isFetching: productFetching, data: products = [] } = useQuery({
     queryKey: ["productData"], refetchOnWindowFocus: false,
     retry: 3,
     queryFn: async () => {
@@ -31,8 +31,9 @@ function ProductList() {
       return Array.isArray(apiData.products) ? apiData.products : []
     }
   })
+  
 
-  if (productLoading || groceryLoading) {
+  if (productLoading || groceryLoading || groceryFetching || productFetching ) {
     return (
       <div style={{ display: 'flex', justifyContent: 'center', padding: '50px' }}>
         <Ring
