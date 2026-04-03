@@ -44,20 +44,6 @@ function ProductFilter() {
     ))
   }, [filter])
 
-  if (productLoading || groceryLoading || groceryFetching || productFetching ) {
-    return (
-      <div style={{ display: 'flex', justifyContent: 'center', padding: '50px' }}>
-        <Ring
-          size="40"
-          stroke="5"
-          bgOpacity="0"
-          speed="1"
-          color="black"
-        />
-      </div>
-    )
-  }
-
   return (
     <div className={style["filter-wrapper"]}>
       <div className={style.filter}>
