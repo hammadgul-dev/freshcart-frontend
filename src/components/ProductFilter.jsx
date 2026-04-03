@@ -14,7 +14,7 @@ function ProductFilter() {
     sortType: null,
   })
 
-  let { isLoading: groceryLoading, error: groceryError, data: grocery } = useQuery({
+  let { isLoading: groceryLoading, error: groceryError, data: grocery=[] } = useQuery({
     queryKey: ["groceryData"], refetchOnWindowFocus: false,
     staleTime: Infinity,
     queryFn: async () => {
@@ -23,7 +23,7 @@ function ProductFilter() {
     }
   })
 
-  let { isLoading: productLoading, error: productError, data: product } = useQuery({
+  let { isLoading: productLoading, error: productError, data: product=[] } = useQuery({
     queryKey: ["productData"], refetchOnWindowFocus: false,
     staleTime: Infinity,
     queryFn: async () => {
