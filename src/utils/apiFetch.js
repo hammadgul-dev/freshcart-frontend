@@ -1,4 +1,4 @@
-export async function apiFetch(apiUrl, options = {}) {
+export async function apiFetch(apiUrl, options = {}, retries = 2) {
   try {
     let apiResp = await fetch(apiUrl, {
       ...options,
@@ -6,10 +6,10 @@ export async function apiFetch(apiUrl, options = {}) {
       credentials: "include",
     });
     let apiData = await apiResp.json()
-    if (!apiResp.ok)
-      throw apiData
+    if (!apiResp.ok) throw apiData
     return apiData
   } catch (e) {
+    if (retries > 0) return apiFetch(apiUrl, options, retries - 1)
     throw e
   }
 }
