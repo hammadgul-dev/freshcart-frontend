@@ -47,7 +47,7 @@ function ProductDetail() {
                     <div className={style["detail-section"]}>
                         <div className={style["detail-wrapper"]}>
                             <div className={style["item-img"]}>
-                                <img src={item.thumbnail || `${import.meta.env.VITE_BACKEND_API}/public${item.image}` || "https://www.slntechnologies.com/wp-content/uploads/2017/08/ef3-placeholder-image.jpg"}
+                                <img src={item.thumbnail || item.image || "https://www.slntechnologies.com/wp-content/uploads/2017/08/ef3-placeholder-image.jpg"}
                                     alt={item.title || item.name || "No Title"}
                                     onError={(e) => {
                                         e.target.src = "https://www.slntechnologies.com/wp-content/uploads/2017/08/ef3-placeholder-image.jpg"

@@ -20,7 +20,7 @@ function ProductCard({ data }) {
         {
           method: "POST",
           body: JSON.stringify({
-            itemImg: data.thumbnail || `${import.meta.env.VITE_BACKEND_API}/public${data.image}`,
+            itemImg: data.thumbnail || data.image,
             itemName: data.title || data.name,
             itemId: data.id || data._id
           })
@@ -40,7 +40,7 @@ function ProductCard({ data }) {
   let handleCart = useMutation({
     mutationFn: async (data) => {
       let items = {
-        itemImg: data.thumbnail || `${import.meta.env.VITE_BACKEND_API}/public${data.image}`,
+        itemImg: data.thumbnail || data.image,
         itemName: data.title || data.name,
         itemRating: data.rating || 4.5,
         itemPrice: data.price || 45,
@@ -67,7 +67,7 @@ function ProductCard({ data }) {
     <>
       <div className={style.card}>
         <div className={style["item-img"]}>
-          <img src={data.thumbnail || `${import.meta.env.VITE_BACKEND_API}/public${data.image}` || "https://www.slntechnologies.com/wp-content/uploads/2017/08/ef3-placeholder-image.jpg"}
+          <img src={data.thumbnail || data.image || "https://www.slntechnologies.com/wp-content/uploads/2017/08/ef3-placeholder-image.jpg"}
             alt={data.title || data.name || "No Title"}
             onError={(e) => {
               e.target.src = "https://www.slntechnologies.com/wp-content/uploads/2017/08/ef3-placeholder-image.jpg"
