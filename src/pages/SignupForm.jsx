@@ -44,7 +44,7 @@ function SignupForm() {
                 body: JSON.stringify(userInfo)
             })
         },
-        oonSuccess: (data) => {
+        onSuccess: (data) => {
             localStorage.setItem("token", data.token)
             dispatch(setMessage({ message: data.message }))
             queryClient.setQueryData(["authUser"], { isLogged: true })
