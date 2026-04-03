@@ -12,22 +12,23 @@ function ProductList() {
   const cardViewSelector = useSelector(state => state.cardViewReducer.value)
   const userSearch = useSelector(state => state.filterReducer.searchTxt)
 
-  let { isLoading: groceryLoading, error: groceryError, data: groceries=[] } = useQuery({
+  let { isLoading: groceryLoading, error: groceryError, data: groceries = [] } = useQuery({
     queryKey: ["groceryData"], refetchOnWindowFocus: false,
-    staleTime: Infinity,
+    retry: 3,
     queryFn: async () => {
       let apiData = await fetch(`${import.meta.env.VITE_BACKEND_API}/grocery`)
-      return apiData.json()
+      let data = await apiData.json()
+      return Array.isArray(data) ? data : []
     }
   })
 
-  let { isLoading: productLoading, error: productError, data: products=[] } = useQuery({
+  let { isLoading: productLoading, error: productError, data: products = [] } = useQuery({
     queryKey: ["productData"], refetchOnWindowFocus: false,
-    staleTime: Infinity,
+    retry: 3,
     queryFn: async () => {
       let api = await fetch(`${import.meta.env.VITE_BACKEND_API}/product`)
       let apiData = await api.json()
-      return apiData.products
+      return Array.isArray(apiData.products) ? apiData.products : []
     }
   })
 
