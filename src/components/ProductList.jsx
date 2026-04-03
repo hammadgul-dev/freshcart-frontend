@@ -12,7 +12,7 @@ function ProductList() {
   const cardViewSelector = useSelector(state => state.cardViewReducer.value)
   const userSearch = useSelector(state => state.filterReducer.searchTxt)
 
-  let { isLoading: groceryLoading, error: groceryError, data: groceries } = useQuery({
+  let { isLoading: groceryLoading, error: groceryError, data: groceries=[] } = useQuery({
     queryKey: ["groceryData"], refetchOnWindowFocus: false,
     staleTime: Infinity,
     queryFn: async () => {
@@ -21,7 +21,7 @@ function ProductList() {
     }
   })
 
-  let { isLoading: productLoading, error: productError, data: products } = useQuery({
+  let { isLoading: productLoading, error: productError, data: products=[] } = useQuery({
     queryKey: ["productData"], refetchOnWindowFocus: false,
     staleTime: Infinity,
     queryFn: async () => {
