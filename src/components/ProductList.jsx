@@ -15,6 +15,7 @@ function ProductList() {
   let { isLoading: groceryLoading, isFetching: groceryFetching, data: groceries = [] } = useQuery({
     queryKey: ["groceryData"], refetchOnWindowFocus: false,
     retry: 3,
+    retryDelay : 2000,
     queryFn: async () => {
       let apiData = await fetch(`${import.meta.env.VITE_BACKEND_API}/grocery`)
       let data = await apiData.json()
