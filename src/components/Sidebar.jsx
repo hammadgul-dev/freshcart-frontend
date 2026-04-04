@@ -38,6 +38,7 @@ function Sidebar() {
             let apiData = await apiFetch(`${import.meta.env.VITE_BACKEND_API}/logout`, { method: "POST" })
             dispatch(setMessage({ message: apiData.message }))
             queryClient.clear()
+            localStorage.clear()
             setTimeout(() => { navigate("/") }, 2000)
         }
         catch (e) {
